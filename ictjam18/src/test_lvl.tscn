@@ -1,11 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxtfoweo1iq0w"]
+[gd_scene load_steps=18 format=3 uid="uid://bxtfoweo1iq0w"]
 
 [ext_resource type="PackedScene" uid="uid://qw8clvhat4hh" path="res://src/player.tscn" id="1_yalby"]
 [ext_resource type="PackedScene" uid="uid://bagqqbqtwqrda" path="res://src/tower_square.tscn" id="2_p13s7"]
 [ext_resource type="PackedScene" uid="uid://dfbrhfbf4ljtj" path="res://src/loop_tower.tscn" id="3_ey1qe"]
 [ext_resource type="Script" path="res://src/resetter.gd" id="3_xywgf"]
 [ext_resource type="PackedScene" uid="uid://lby3tbjqsdqu" path="res://src/wood.tscn" id="4_6wfdo"]
+[ext_resource type="PackedScene" uid="uid://b38v5seimhs5a" path="res://src/just_plat.tscn" id="4_8coi7"]
+[ext_resource type="PackedScene" uid="uid://bed3u4itpv8lt" path="res://src/wall_stairs.tscn" id="5_vow3h"]
 [ext_resource type="Texture2D" uid="uid://bkh0fus1tfqfl" path="res://texture/pattern_25_light.png" id="6_dgj18"]
+[ext_resource type="PackedScene" uid="uid://bett8r7gnpm37" path="res://model/combined/hex_tower_mid.glb" id="7_apr12"]
+[ext_resource type="PackedScene" uid="uid://bmnxe0b3m66do" path="res://src/wall_narrow.tscn" id="8_1jbrs"]
+[ext_resource type="PackedScene" uid="uid://bubab0eq8muxf" path="res://src/windmiller.tscn" id="9_10k4a"]
+[ext_resource type="PackedScene" uid="uid://b4202fgf5riut" path="res://src/end_goal.tscn" id="11_110un"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cygyu"]
 sky_top_color = Color(0.174092, 0.204825, 0.299035, 1)
@@ -31,45 +37,51 @@ subdivide_width = 10
 subdivide_depth = 10
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0wwk"]
+transparency = 1
 shading_mode = 0
-albedo_color = Color(0.67823, 0.173741, 0.168208, 1)
+albedo_color = Color(0.757699, 0.205067, 0.197193, 1)
 albedo_texture = ExtResource("6_dgj18")
 uv1_scale = Vector3(0.2, 0.2, 0.2)
 uv1_triplanar = true
 uv1_world_triplanar = true
+distance_fade_mode = 1
+distance_fade_min_distance = 118.0
+distance_fade_max_distance = 90.0
 
 [node name="Node3D" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
 environment = SubResource("Environment_8ddsa")
 
-[node name="SkyLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.990263, -0.0518975, -0.129176, -0.128999, -0.00676062, 0.991622, -0.052336, 0.99863, 4.15044e-08, 6.60567, 0, -12.1725)
+[node name="SkyLight" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-0.990263, -0.0518975, -0.129176, -0.128999, -0.00676062, 0.991622, -0.052336, 0.99863, 6.58686e-08, 6.60567, 0, -12.1725)
 light_color = Color(0.603699, 0.748185, 0.802819, 1)
 light_energy = 0.4
 light_angular_distance = 8.0
 shadow_enabled = true
 sky_mode = 1
 
-[node name="LavaSun" type="DirectionalLight3D" parent="."]
+[node name="LavaSun" type="DirectionalLight3D" parent="Env"]
 transform = Transform3D(1, 0, 0, 0, -0.707107, -0.707107, 0, 0.707107, -0.707107, 7.59926, 0, -6.16359)
 light_color = Color(0.944696, 0.55355, 0.529143, 1)
 light_energy = 0.8
 shadow_enabled = true
 
-[node name="LavaSun2" type="DirectionalLight3D" parent="."]
+[node name="LavaSun2" type="DirectionalLight3D" parent="Env"]
 transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, -0.707107, -0.707107, 1, -3.09086e-08, 3.09086e-08, 7.59926, 0, -6.16359)
 light_color = Color(0.944696, 0.55355, 0.529143, 1)
 light_energy = 0.8
 shadow_enabled = true
 
-[node name="LavaSun3" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, -0.707107, -0.707107, -8.74228e-08, -0.707107, 0.707107, 7.59926, 0, -6.16359)
+[node name="LavaSun3" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, -0.707107, -0.707107, -8.74228e-08, -0.707107, 0.707107, 7.59926, 0, -6.16359)
 light_color = Color(0.944696, 0.55355, 0.529143, 1)
 light_energy = 0.8
 shadow_enabled = true
 
-[node name="LavaSun4" type="DirectionalLight3D" parent="."]
+[node name="LavaSun4" type="DirectionalLight3D" parent="Env"]
 transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, -0.707107, -0.707107, -1, -3.09086e-08, 3.09086e-08, 7.59926, 0, -6.16359)
 light_color = Color(0.944696, 0.55355, 0.529143, 1)
 light_energy = 0.8
@@ -81,19 +93,53 @@ cam = NodePath("../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.877582, -0.229849, 0.420736, 0, 0.877582, 0.479426, -0.479426, -0.420736, 0.770151, 28.7667, 6.57113, 12.5559)
+current = true
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="LevelStuff" type="Node3D" parent="."]
 
-[node name="TowerSquare" parent="Node3D" instance=ExtResource("2_p13s7")]
+[node name="TowerSquare" parent="LevelStuff" instance=ExtResource("2_p13s7")]
 
-[node name="TowerSquare2" parent="Node3D" instance=ExtResource("2_p13s7")]
+[node name="TowerSquare2" parent="LevelStuff" instance=ExtResource("2_p13s7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -14)
 
-[node name="LoopTower" parent="Node3D" instance=ExtResource("3_ey1qe")]
+[node name="TowerSquare3" parent="LevelStuff" instance=ExtResource("2_p13s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -2.45957, -43)
+
+[node name="LoopTower" parent="LevelStuff" instance=ExtResource("3_ey1qe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -37)
 
-[node name="Wood" parent="Node3D" instance=ExtResource("4_6wfdo")]
+[node name="JustPlat" parent="LevelStuff/LoopTower" instance=ExtResource("4_8coi7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2232, 15.4948, -10.9892)
+
+[node name="JustPlat2" parent="LevelStuff/LoopTower" instance=ExtResource("4_8coi7")]
+transform = Transform3D(0.933386, 0, -0.358873, 0, 1, 0, 0.358873, 0, 0.933386, -10.0912, 16.747, -11.0353)
+
+[node name="JustPlat3" parent="LevelStuff/LoopTower" instance=ExtResource("4_8coi7")]
+transform = Transform3D(0.997529, 0, 0.0702614, 0, 1, 0, -0.0702614, 0, 0.997529, -9.80641, 17.679, -13.228)
+
+[node name="WallStairs" parent="LevelStuff/LoopTower" instance=ExtResource("5_vow3h")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24, 14, -6)
+
+[node name="WallNarrow" parent="LevelStuff/LoopTower" instance=ExtResource("8_1jbrs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 14, -6)
+
+[node name="hex_tower_mid" parent="LevelStuff/LoopTower/WallNarrow" instance=ExtResource("7_apr12")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.07845, 0.172104, 5.24096)
+
+[node name="WallNarrow2" parent="LevelStuff/LoopTower" instance=ExtResource("8_1jbrs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 14, -6)
+
+[node name="Wood" parent="LevelStuff" instance=ExtResource("4_6wfdo")]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 20, 0, 1)
+
+[node name="WallNarrow" parent="LevelStuff" instance=ExtResource("8_1jbrs")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -20.864, -1, -65.6573)
+
+[node name="WallNarrow2" parent="LevelStuff" instance=ExtResource("8_1jbrs")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -20.864, 13.0495, -65.6573)
+
+[node name="EndGoal" parent="LevelStuff" instance=ExtResource("11_110un")]
+transform = Transform3D(0.503638, 0, -0.863915, 0, 1, 0, 0.863915, 0, 0.503638, -24.9631, -1.90735e-06, -87.2541)
 
 [node name="Resetter" type="Node" parent="."]
 script = ExtResource("3_xywgf")
@@ -102,3 +148,6 @@ script = ExtResource("3_xywgf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.5886, 0)
 mesh = SubResource("PlaneMesh_015h3")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0wwk")
+
+[node name="Windmiller" parent="." instance=ExtResource("9_10k4a")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.3846, -30.3287, -94.375)

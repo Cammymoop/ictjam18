@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=3 uid="uid://bubab0eq8muxf"]
+
+[ext_resource type="PackedScene" uid="uid://5qwnk3pu4ebx" path="res://model/combined/tower_thing.glb" id="1_bejo3"]
+[ext_resource type="Script" path="res://src/windmiller.gd" id="1_x7iv0"]
+[ext_resource type="PackedScene" uid="uid://gy7cyhrphbyv" path="res://model/combined/log.glb" id="2_pttde"]
+[ext_resource type="PackedScene" uid="uid://bett8r7gnpm37" path="res://model/combined/hex_tower_mid.glb" id="3_cfq7l"]
+[ext_resource type="PackedScene" uid="uid://b52shy1dlbsjw" path="res://model/combined/hex_tower_section.glb" id="3_i0tu5"]
+[ext_resource type="PackedScene" uid="uid://cwy4xivimqpk7" path="res://src/b_plat.tscn" id="4_8oa4w"]
+
+[node name="Windmiller" type="Node3D"]
+script = ExtResource("1_x7iv0")
+
+[node name="Scaler" type="Node3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="tower_thing" parent="Scaler" instance=ExtResource("1_bejo3")]
+transform = Transform3D(14, 0, 0, 0, 14, 0, 0, 0, 14, -23, 0, 0)
+
+[node name="tower-hexagon-roof" parent="Scaler/tower_thing" index="0"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 5.39623, 0)
+
+[node name="hex_tower_section" parent="Scaler/tower_thing" instance=ExtResource("3_i0tu5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90476, 0)
+
+[node name="Spinner" type="Node3D" parent="Scaler"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.67037e-22, 0, -1.67037e-22, 1, 30.7817, 45, 0)
+
+[node name="log" parent="Scaler/Spinner" instance=ExtResource("2_pttde")]
+transform = Transform3D(-6.11959e-07, 0, 14, -2.33852e-21, 14, -1.0222e-28, -14, 2.33852e-21, -6.11959e-07, -14, 0, 0)
+
+[node name="log2" parent="Scaler/Spinner" instance=ExtResource("2_pttde")]
+transform = Transform3D(-6.11959e-07, 0, 14, -1.22392e-06, -14, -5.34992e-14, 14, -1.22392e-06, 6.11959e-07, 0, 0, 0)
+
+[node name="log3" parent="Scaler/Spinner" instance=ExtResource("2_pttde")]
+transform = Transform3D(-6.11959e-07, 0, 14, 9.8995, 9.8995, 4.32721e-07, -9.8995, 9.8995, -4.32721e-07, -42, 0, 0)
+
+[node name="log4" parent="Scaler/Spinner" instance=ExtResource("2_pttde")]
+transform = Transform3D(-6.11959e-07, 0, 14, -9.8995, -9.89949, -4.32721e-07, 9.89949, -9.8995, 4.32721e-07, -28, 0, 0)
+
+[node name="arm" type="Node3D" parent="Scaler/Spinner"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 6, 0, 0)
+
+[node name="log3" parent="Scaler/Spinner/arm" instance=ExtResource("2_pttde")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.52435e-29, 0, 1.26218e-29, 2, 0, 0, -1.15023)
+
+[node name="log4" parent="Scaler/Spinner/arm" instance=ExtResource("2_pttde")]
+transform = Transform3D(0.5, -0.866026, -2.89317e-22, 0.866026, 0.5, -1.67037e-22, 1.44659e-22, -8.35187e-23, 2, 0, 0, -3.15023)
+
+[node name="End" type="Node3D" parent="Scaler/Spinner/arm"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.26218e-29, 0, 1.26218e-29, 1, 0, 0, -4.16667)
+
+[node name="B" parent="Scaler/Spinner/arm/End" instance=ExtResource("4_8oa4w")]
+
+[node name="arm2" type="Node3D" parent="Scaler/Spinner"]
+transform = Transform3D(10, 0, 0, 0, 5, -8.66025, 0, 8.66025, 5, 6, 0, 0)
+
+[node name="log3" parent="Scaler/Spinner/arm2" instance=ExtResource("2_pttde")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.52435e-29, 0, 1.26218e-29, 2, 0, 0, -1.15023)
+
+[node name="log4" parent="Scaler/Spinner/arm2" instance=ExtResource("2_pttde")]
+transform = Transform3D(0.5, -0.866026, -2.89317e-22, 0.866026, 0.5, -1.67037e-22, 1.44659e-22, -8.35187e-23, 2, 0, 0, -3.15023)
+
+[node name="End2" type="Node3D" parent="Scaler/Spinner/arm2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.16667)
+
+[node name="B" parent="Scaler/Spinner/arm2/End2" instance=ExtResource("4_8oa4w")]
+
+[node name="arm3" type="Node3D" parent="Scaler/Spinner"]
+transform = Transform3D(10, 0, 0, 0, -5, -8.66025, 0, 8.66025, -5, 6, 0, 0)
+
+[node name="log3" parent="Scaler/Spinner/arm3" instance=ExtResource("2_pttde")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.52435e-29, 0, 1.26218e-29, 2, 0, 0, -1.15023)
+
+[node name="log4" parent="Scaler/Spinner/arm3" instance=ExtResource("2_pttde")]
+transform = Transform3D(0.5, -0.866026, -2.89317e-22, 0.866026, 0.5, -1.67037e-22, 1.44659e-22, -8.35187e-23, 2, 0, 0, -3.15023)
+
+[node name="End3" type="Node3D" parent="Scaler/Spinner/arm3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.16667)
+
+[node name="B" parent="Scaler/Spinner/arm3/End3" instance=ExtResource("4_8oa4w")]
+
+[node name="arm4" type="Node3D" parent="Scaler/Spinner"]
+transform = Transform3D(10, 0, 0, 0, -10, 1.50996e-06, 0, -1.50996e-06, -10, 6, 0, 0)
+
+[node name="log3" parent="Scaler/Spinner/arm4" instance=ExtResource("2_pttde")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.52435e-29, 0, 1.26218e-29, 2, 0, 0, -1.15023)
+
+[node name="log4" parent="Scaler/Spinner/arm4" instance=ExtResource("2_pttde")]
+transform = Transform3D(0.5, -0.866026, -2.89317e-22, 0.866026, 0.5, -1.67037e-22, 1.44659e-22, -8.35187e-23, 2, 0, 0, -3.15023)
+
+[node name="End4" type="Node3D" parent="Scaler/Spinner/arm4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.16667)
+
+[node name="B" parent="Scaler/Spinner/arm4/End4" instance=ExtResource("4_8oa4w")]
+
+[node name="arm5" type="Node3D" parent="Scaler/Spinner"]
+transform = Transform3D(10, 0, 0, 0, -5, 8.66026, 0, -8.66026, -5, 6, 0, 0)
+
+[node name="log3" parent="Scaler/Spinner/arm5" instance=ExtResource("2_pttde")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.52435e-29, 0, 1.26218e-29, 2, 0, 0, -1.15023)
+
+[node name="log4" parent="Scaler/Spinner/arm5" instance=ExtResource("2_pttde")]
+transform = Transform3D(0.5, -0.866026, -2.89317e-22, 0.866026, 0.5, -1.67037e-22, 1.44659e-22, -8.35187e-23, 2, 0, 0, -3.15023)
+
+[node name="End5" type="Node3D" parent="Scaler/Spinner/arm5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.16667)
+
+[node name="B" parent="Scaler/Spinner/arm5/End5" instance=ExtResource("4_8oa4w")]
+
+[node name="arm6" type="Node3D" parent="Scaler/Spinner"]
+transform = Transform3D(10, 0, 0, 0, 5, 8.66025, 0, -8.66025, 5, 6, 0, 0)
+
+[node name="log3" parent="Scaler/Spinner/arm6" instance=ExtResource("2_pttde")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.52435e-29, 0, 1.26218e-29, 2, 0, 0, -1.15023)
+
+[node name="log4" parent="Scaler/Spinner/arm6" instance=ExtResource("2_pttde")]
+transform = Transform3D(0.5, -0.866026, -2.89317e-22, 0.866026, 0.5, -1.67037e-22, 1.44659e-22, -8.35187e-23, 2, 0, 0, -3.15023)
+
+[node name="End6" type="Node3D" parent="Scaler/Spinner/arm6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.16667)
+
+[node name="B" parent="Scaler/Spinner/arm6/End6" instance=ExtResource("4_8oa4w")]
+
+[node name="hex_tower_mid" parent="Scaler/Spinner" instance=ExtResource("3_cfq7l")]
+transform = Transform3D(-2.62268e-07, 6, 0, -6, -2.62268e-07, -1.00222e-21, -1.00222e-21, -4.38086e-29, 6, 5, 0, 0)
+
+[editable path="Scaler/tower_thing"]

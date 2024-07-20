@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7cll0nj2uld1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_luiyu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3eir"]
+albedo_color = Color(0.424092, 0.190914, 0.484925, 1)
+
+[node name="Marker" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_luiyu")
+surface_material_override/0 = SubResource("StandardMaterial3D_a3eir")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="queue_free"]

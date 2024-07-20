@@ -35,6 +35,11 @@ var temp_step_height : float = 0
 # where your input wants to take you.
 var desired_velocity : Vector3 = Vector3.ZERO
 
+var last_snap_adj: = 0.0
+var snap_adj: = 0.0
+
+var snap_adj_speed: = 6
+
 # Replace your move_and_slide with this function
 func move_and_stair_step():
 	stair_step_up()
@@ -48,10 +53,14 @@ func _ready() -> void:
 	if _collider_margin > .01:
 		push_warning("Margin on player's collider shape is over 0.01, may snag on stair steps")
 	
-func _physics_process(_delta) -> void:
+func _physics_process(delta: float) -> void:
 	was_grounded = grounded
 	grounded = is_on_floor()
 	desired_velocity = Vector3.ZERO
+	
+	var adj_factor: = maxf(1, pow(abs(snap_adj), 2))
+	snap_adj = move_toward(snap_adj, 0, snap_adj_speed * adj_factor * delta)
+	last_snap_adj = snap_adj
 	
 func stair_step_down() -> void:
 	# Don't step down if we weren't on the ground last physics frame
@@ -67,9 +76,14 @@ func stair_step_down() -> void:
 	# Nothing to step down on
 	if PhysicsServer3D.body_test_motion(get_rid(), parameters, result) == false:
 		return
-		
+	
+	var old_y = global_position.y + last_snap_adj
 	global_transform = global_transform.translated(result.get_travel())
 	apply_floor_snap()
+	
+	#if old_y != global_position.y:
+		#prints(old_y, global_position.y, snap_adj, last_snap_adj)
+	snap_adj = old_y - global_position.y
 	
 func stair_step_up() -> void:
 	if (grounded == false && force_stair_step == false): return
@@ -83,6 +97,8 @@ func stair_step_up() -> void:
 	var result = PhysicsTestMotionResult3D.new()
 	var parameters = PhysicsTestMotionParameters3D.new()
 	parameters.margin = _collider_margin
+	parameters.max_collisions = 4
+	#parameters.recovery_as_collision = true
 	
 	# This variable gets reused for all the following checks
 	var motion_transform = global_transform
@@ -98,36 +114,53 @@ func stair_step_up() -> void:
 		
 	# Move to collision
 	var remainder = result.get_remainder()
+	var AR = false
+	if abs(remainder.length() - distance.length()) < 0.04:
+		AR = true
+		#print("ALL REMAINDER " + str(result.get_travel().length()) + " " + str(distance.length()))
 	motion_transform = motion_transform.translated(result.get_travel())
 
 	# Raise up to ceiling - can't walk on steps if there's a low ceiling
 	var step_up = _step_height * Vector3.UP
-	parameters.from = motion_transform
-	parameters.motion = step_up
-	PhysicsServer3D.body_test_motion(get_rid(), parameters, result)
-	# GetTravel will be full length if we didn't hit anything
-	motion_transform = motion_transform.translated(result.get_travel())
-	var step_up_distance = result.get_travel().length()
+	#parameters.from = motion_transform
+	#parameters.motion = step_up
+	#PhysicsServer3D.body_test_motion(get_rid(), parameters, result)
+	## GetTravel will be full length if we didn't hit anything
+	motion_transform = motion_transform.translated(step_up)
+	var step_up_distance = _step_height#result.get_travel().length()
 
 	# Move forward remaining distance
 	parameters.from = motion_transform
 	parameters.motion = remainder
 	PhysicsServer3D.body_test_motion(get_rid(), parameters, result)
+	#if AR:
+		#print(result.get_travel().length())
 	motion_transform = motion_transform.translated(result.get_travel())
+	var forw = result.get_travel()
 	
 	# And set the collider back down again
-	parameters.from = motion_transform;
+	parameters.from = motion_transform
 	# But no further than how far we stepped up
 	parameters.motion = Vector3.DOWN * step_up_distance
 	
 	# Don't bother with the rest if we're not actually gonna land back down on something
 	if PhysicsServer3D.body_test_motion(get_rid(), parameters, result) == false:
+		pass
+		#if AR:
+			#prints("AAAAAr", forw, parameters.motion.length())
 		return
 	
 	motion_transform = motion_transform.translated(result.get_travel())
 	
-	var surfaceNormal = result.get_collision_normal(0)
-	if (surfaceNormal.angle_to(Vector3.UP) > floor_max_angle): return #Can't stand on the thing we're trying to step on anyway
+	if result.get_collision_count() > 0:
+		var surfaceNormal = result.get_collision_normal(0)
+		if (surfaceNormal.angle_to(Vector3.UP) > floor_max_angle):
+			return #Can't stand on the thing we're trying to step on anyway
 
 	# Move player to match the step height we just found
-	global_position.y = motion_transform.origin.y;
+	var old_y = global_position.y + snap_adj
+	global_position.y = motion_transform.origin.y
+	
+	snap_adj = old_y - global_position.y
+	#if snap_adj < 0:
+		#prints("SNAPPED", snap_adj)

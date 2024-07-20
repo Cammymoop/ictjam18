@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmnxe0b3m66do"]
+
+[ext_resource type="PackedScene" uid="uid://bba6txi5kd25m" path="res://model/combined/wall_narrow.glb" id="1_l6dho"]
+
+[node name="WallNarrow" type="Node3D"]
+
+[node name="wall_narrow" parent="." instance=ExtResource("1_l6dho")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, -15, 0)

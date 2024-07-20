@@ -39,9 +39,3 @@ transform = Transform3D(1, 0, 0, 0, 0.757964, 0.652297, 0, -0.652297, 0.757964, 
 spring_length = 12.0
 
 [node name="CamTarget" type="Node3D" parent="CamPivotRoot/CamPivotHeight/CamSpring"]
-
-[node name="CheatTimer" type="Timer" parent="."]
-wait_time = 1.2
-one_shot = true
-
-[connection signal="timeout" from="CheatTimer" to="." method="_on_cheat_timer_timeout"]

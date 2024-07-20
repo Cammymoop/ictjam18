@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdtw7umm3sqo5"
-path.s3tc="res://.godot/imported/variation-d.png-bbdfeee8f640ec0e68782f8f774555ba.s3tc.ctex"
+uid="uid://capbv1iecy0w"
+path.s3tc="res://.godot/imported/wood_platform_sh_colormap.png-0f6f5a40b2ace8d7c311926481a6659d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "91a2dd577ad819a7d6d4951a0ba02a3c"
+}
 
 [deps]
 
-source_file="res://model/castle_tex/variation-d.png"
-dest_files=["res://.godot/imported/variation-d.png-bbdfeee8f640ec0e68782f8f774555ba.s3tc.ctex"]
+source_file="res://model/combined/wood_platform_sh_colormap.png"
+dest_files=["res://.godot/imported/wood_platform_sh_colormap.png-0f6f5a40b2ace8d7c311926481a6659d.s3tc.ctex"]
 
 [params]
 
