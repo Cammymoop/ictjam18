@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lby3tbjqsdqu"]
+
+[ext_resource type="PackedScene" uid="uid://cts18wcag8krl" path="res://model/combined/wood_wall.glb" id="1_jh8ln"]
+
+[node name="Wood" type="Node3D"]
+
+[node name="wood_wall" parent="." instance=ExtResource("1_jh8ln")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, -14.5, 0)

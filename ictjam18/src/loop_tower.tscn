@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfbrhfbf4ljtj"]
+
+[ext_resource type="PackedScene" uid="uid://cwa55oxqseb28" path="res://model/combined/loop_tower.glb" id="1_i0gpk"]
+
+[node name="LoopTower" type="Node3D"]
+
+[node name="loop_tower" parent="." instance=ExtResource("1_i0gpk")]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, -14.25, 0)

@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://bxtfoweo1iq0w"]
+
+[ext_resource type="PackedScene" uid="uid://qw8clvhat4hh" path="res://src/player.tscn" id="1_yalby"]
+[ext_resource type="PackedScene" uid="uid://bagqqbqtwqrda" path="res://src/tower_square.tscn" id="2_p13s7"]
+[ext_resource type="PackedScene" uid="uid://dfbrhfbf4ljtj" path="res://src/loop_tower.tscn" id="3_ey1qe"]
+[ext_resource type="Script" path="res://src/resetter.gd" id="3_xywgf"]
+[ext_resource type="PackedScene" uid="uid://lby3tbjqsdqu" path="res://src/wood.tscn" id="4_6wfdo"]
+[ext_resource type="Texture2D" uid="uid://bkh0fus1tfqfl" path="res://texture/pattern_25_light.png" id="6_dgj18"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cygyu"]
+sky_top_color = Color(0.174092, 0.204825, 0.299035, 1)
+sky_horizon_color = Color(0.166323, 0.113343, 0.213857, 1)
+sky_energy_multiplier = 0.8
+ground_bottom_color = Color(0.436127, 0.103508, 0.0849306, 1)
+ground_horizon_color = Color(0.629777, 0.176987, 0.184934, 1)
+ground_energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_wau4r"]
+sky_material = SubResource("ProceduralSkyMaterial_cygyu")
+
+[sub_resource type="Environment" id="Environment_8ddsa"]
+background_mode = 2
+sky = SubResource("Sky_wau4r")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_015h3"]
+size = Vector2(1500, 1500)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0wwk"]
+shading_mode = 0
+albedo_color = Color(0.67823, 0.173741, 0.168208, 1)
+albedo_texture = ExtResource("6_dgj18")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8ddsa")
+
+[node name="SkyLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.990263, -0.0518975, -0.129176, -0.128999, -0.00676062, 0.991622, -0.052336, 0.99863, 4.15044e-08, 6.60567, 0, -12.1725)
+light_color = Color(0.603699, 0.748185, 0.802819, 1)
+light_energy = 0.4
+light_angular_distance = 8.0
+shadow_enabled = true
+sky_mode = 1
+
+[node name="LavaSun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, -0.707107, 0, 0.707107, -0.707107, 7.59926, 0, -6.16359)
+light_color = Color(0.944696, 0.55355, 0.529143, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="LavaSun2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, -0.707107, -0.707107, 1, -3.09086e-08, 3.09086e-08, 7.59926, 0, -6.16359)
+light_color = Color(0.944696, 0.55355, 0.529143, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="LavaSun3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 6.18172e-08, -6.18172e-08, 0, -0.707107, -0.707107, -8.74228e-08, -0.707107, 0.707107, 7.59926, 0, -6.16359)
+light_color = Color(0.944696, 0.55355, 0.529143, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="LavaSun4" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, -0.707107, -0.707107, -1, -3.09086e-08, 3.09086e-08, 7.59926, 0, -6.16359)
+light_color = Color(0.944696, 0.55355, 0.529143, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_yalby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -0.161081, 2)
+cam = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.877582, -0.229849, 0.420736, 0, 0.877582, 0.479426, -0.479426, -0.420736, 0.770151, 28.7667, 6.57113, 12.5559)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="TowerSquare" parent="Node3D" instance=ExtResource("2_p13s7")]
+
+[node name="TowerSquare2" parent="Node3D" instance=ExtResource("2_p13s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -14)
+
+[node name="LoopTower" parent="Node3D" instance=ExtResource("3_ey1qe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -37)
+
+[node name="Wood" parent="Node3D" instance=ExtResource("4_6wfdo")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 20, 0, 1)
+
+[node name="Resetter" type="Node" parent="."]
+script = ExtResource("3_xywgf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.5886, 0)
+mesh = SubResource("PlaneMesh_015h3")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0wwk")

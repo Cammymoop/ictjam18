@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://qw8clvhat4hh"]
+
+[ext_resource type="Script" path="res://character_body_3d.gd" id="1_c6hxv"]
+[ext_resource type="PackedScene" uid="uid://ywqi68rykbgb" path="res://src/char_model.tscn" id="2_mini2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2wl6g"]
+height = 4.37275
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+floor_constant_speed = true
+floor_snap_length = 0.3
+script = ExtResource("1_c6hxv")
+
+[node name="CharModel" parent="." instance=ExtResource("2_mini2")]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23353, 0.172181)
+shape = SubResource("CapsuleShape3D_2wl6g")
+
+[node name="CamPivotRoot" type="Node3D" parent="."]
+transform = Transform3D(0.807733, 0, 0.589549, 0, 1, 0, -0.589549, 0, 0.807733, 0, 2.14964, 0)
+
+[node name="CamPivotHeight" type="Node3D" parent="CamPivotRoot"]
+transform = Transform3D(1, 0, 0, 0, 0.757964, 0.652297, 0, -0.652297, 0.757964, 0, 0, 0)
+
+[node name="CamSpring" type="SpringArm3D" parent="CamPivotRoot/CamPivotHeight"]
+spring_length = 12.0
+
+[node name="CamTarget" type="Node3D" parent="CamPivotRoot/CamPivotHeight/CamSpring"]
