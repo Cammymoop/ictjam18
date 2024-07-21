@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qw8clvhat4hh"]
+[gd_scene load_steps=6 format=3 uid="uid://qw8clvhat4hh"]
 
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_c6hxv"]
 [ext_resource type="PackedScene" uid="uid://ywqi68rykbgb" path="res://src/char_model.tscn" id="2_mini2"]
@@ -11,12 +11,14 @@ height = 4.37
 margin = 0.02
 height = 4.37275
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_s5g2k"]
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 2
 floor_constant_speed = true
 floor_snap_length = 0.3
 script = ExtResource("1_c6hxv")
-_step_height = 0.9
+_step_height = 0.94
 
 [node name="CharModel" parent="." instance=ExtResource("2_mini2")]
 
@@ -44,4 +46,13 @@ spring_length = 12.0
 wait_time = 1.2
 one_shot = true
 
+[node name="SinkerDetecter" type="Area3D" parent="."]
+collision_layer = 128
+collision_mask = 128
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SinkerDetecter"]
+shape = SubResource("SphereShape3D_s5g2k")
+
 [connection signal="timeout" from="CheatTimer" to="." method="_on_cheat_timer_timeout"]
+[connection signal="body_entered" from="SinkerDetecter" to="." method="_on_faller_detector_body_entered"]

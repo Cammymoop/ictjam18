@@ -2,6 +2,7 @@ extends Area3D
 
 
 
-func _on_body_entered(_body: Node3D) -> void:
+func _on_body_entered(body: Node3D) -> void:
 	print("end goal")
-	CheatSpawner.reload()
+	body.i_win()
+	SceneSwitcher.reload_scene(2)

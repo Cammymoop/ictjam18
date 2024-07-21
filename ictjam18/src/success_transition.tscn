@@ -1,0 +1,337 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfd51fhf4ppag"]
+
+[ext_resource type="Script" path="res://src/success_transition.gd" id="1_jv8tk"]
+[ext_resource type="Texture2D" uid="uid://cr5ysb61c7mic" path="res://texture/splat/splat13.png" id="2_y411x"]
+[ext_resource type="Texture2D" uid="uid://dwwc1etxoc0rj" path="res://texture/splat/splat27.png" id="3_on4tw"]
+[ext_resource type="FontFile" uid="uid://mbp83vf5xtl3" path="res://font/Kenney Bold.ttf" id="4_32oe6"]
+[ext_resource type="Texture2D" uid="uid://kup0quq2i5t6" path="res://texture/splat/splat00.png" id="4_hxp01"]
+
+[sub_resource type="Animation" id="Animation_3amph"]
+resource_name = "transition"
+length = 4.0
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 2.63991, -0.3, 0.872965, 0.3, -0.872965),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 2.67311, -0.2, 0.751554, 0.2, -0.751554),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Sprite2D2:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.79768, -0.2, 1.12483, 0.2, -1.12483),
+"times": PackedFloat32Array(0.6, 1.1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Sprite2D2:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.85794, -0.2, 1.00431, 0.2, -1.00431),
+"times": PackedFloat32Array(0.6, 1.1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Sprite2D3:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.74907, -0.2, 1.31244, 0.2, -1.31244),
+"times": PackedFloat32Array(1.2, 1.7)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Sprite2D3:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.70046, -0.2, 1.118, 0.2, -1.118),
+"times": PackedFloat32Array(1.2, 1.7)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/Sprite2D4:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 30.9855, -0.232647, 1.96866, 0.232647, -1.96866),
+"times": PackedFloat32Array(1.8, 2.4)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Sprite2D4:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 30.9612, -0.232647, 1.87144, 0.232647, -1.87144),
+"times": PackedFloat32Array(1.8, 2.4)
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"now_out"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pkw5m"]
+resource_name = "transition_out"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Sprite2D4:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.420448, 1),
+"update": 0,
+"values": [Vector2(30.9855, 30.9612), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(3.86374, 1),
+"update": 0,
+"values": [Vector2(2.63991, 2.67311), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Sprite2D2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(3.4822, 1),
+"update": 0,
+"values": [Vector2(3.79768, 3.85794), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Sprite2D3:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7, 1),
+"transitions": PackedFloat32Array(3.03143, 1),
+"update": 0,
+"values": [Vector2(3.74907, 3.70046), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_x7hb0"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Sprite2D4:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Sprite2D2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 3.858)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Sprite2D3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nuspp"]
+_data = {
+"RESET": SubResource("Animation_x7hb0"),
+"transition": SubResource("Animation_3amph"),
+"transition_out": SubResource("Animation_pkw5m")
+}
+
+[node name="SuccessTransition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jv8tk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control"]
+self_modulate = Color(0.177505, 0.0897302, 0.168456, 1)
+position = Vector2(21.9999, 82)
+rotation = 3.01942
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_hxp01")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-333, 8)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_y411x")
+
+[node name="Label" type="Label" parent="Control/Sprite2D"]
+z_index = 20
+offset_left = -32.5769
+offset_top = -26.1868
+offset_right = 57.4231
+offset_bottom = 19.8132
+rotation = 0.202923
+theme_override_colors/font_color = Color(0.245499, 0.574457, 0.479165, 1)
+theme_override_fonts/font = ExtResource("4_32oe6")
+theme_override_font_sizes/font_size = 30
+text = "NOT"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-10, 113)
+rotation = -0.978381
+scale = Vector2(1e-05, 3.858)
+texture = ExtResource("3_on4tw")
+
+[node name="Label3" type="Label" parent="Control/Sprite2D2"]
+z_index = 20
+offset_left = -29.0695
+offset_top = -49.4789
+offset_right = 90.9305
+offset_bottom = -3.47885
+rotation = 0.868544
+theme_override_colors/font_color = Color(0.879091, 0.193197, 0.404037, 1)
+theme_override_fonts/font = ExtResource("4_32oe6")
+theme_override_font_sizes/font_size = 30
+text = "DEAD"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(335, -82)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_hxp01")
+
+[node name="Label3" type="Label" parent="Control/Sprite2D3"]
+z_index = 20
+offset_left = -11.7362
+offset_top = -44.0486
+offset_right = 108.264
+offset_bottom = 1.95144
+rotation = 0.641252
+theme_override_colors/font_color = Color(0.439323, 0.394399, 1, 1)
+theme_override_fonts/font = ExtResource("4_32oe6")
+theme_override_font_sizes/font_size = 30
+text = "YET"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nuspp")
+}
+autoplay = "transition"

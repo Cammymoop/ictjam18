@@ -26,9 +26,14 @@ var v_stretch: = 1.0
 
 var prev_y_vel: = 0.0
 
+var DEATH_PLANE = -18
+const CAM_BOTTOM = -12
+
 var since_floor: = 0
 var alive: = true
 var last_cam_target: = Transform3D()
+
+var won: = false
 
 @onready var cam_root_y: = cam_pivot_root.position.y
 
@@ -46,6 +51,12 @@ func _process(delta: float) -> void:
 	if not Input.is_action_pressed("mark_spawn"):
 		$CheatTimer.stop()
 
+func i_win() -> void:
+	if won:
+		return
+	won = true
+	char_model.we_won()
+
 func _physics_process(delta: float) -> void:
 	
 	super._physics_process(delta)
@@ -54,7 +65,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not grounded:
-		velocity += get_gravity() * delta
+		if alive:
+			velocity += get_gravity() * delta
 		if not ext_on_floor:
 			char_model.play_jumping()
 		since_floor += 1
@@ -77,8 +89,8 @@ func _physics_process(delta: float) -> void:
 		var diff: = Vector3(global_position.x - the_cam.global_position.x, 0, global_position.z - the_cam.global_position.z)
 		reference_direction = Basis.looking_at(diff)
 		
-		if alive:
-			last_cam_target = cam_target.global_transform
+		last_cam_target = cam_target.global_transform
+		last_cam_target.origin.y = max(CAM_BOTTOM, last_cam_target.origin.y)
 		the_cam.global_transform = the_cam.global_transform.interpolate_with(last_cam_target, 0.1)
 
 	# Get the input direction and handle the movement/deceleration.
@@ -124,8 +136,9 @@ func _physics_process(delta: float) -> void:
 	char_model.position.y = snap_adj
 	cam_pivot_root.position.y = cam_root_y + snap_adj
 	
-	if global_position.y < -5:
+	if global_position.y < DEATH_PLANE:
 		alive = false
+		velocity.y = 0
 	
 
 
@@ -134,3 +147,7 @@ func _on_cheat_timer_timeout() -> void:
 	var m = mark.instantiate()
 	get_parent().add_child(m)
 	m.global_position = cam_pivot_root.global_position
+
+
+func _on_faller_detector_body_entered(body: Node3D) -> void:
+	body.me_sink()

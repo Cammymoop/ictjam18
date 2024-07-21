@@ -18,6 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 CheatSpawner="*res://cheat_spawner.gd"
+SceneSwitcher="*res://scene_switcher.gd"
+TextureRememberer="*res://texture_rememberer.gd"
+
+[display]
+
+window/size/mode=2
 
 [filesystem]
 
