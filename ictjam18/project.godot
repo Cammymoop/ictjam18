@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ICTJam18"
-run/main_scene="res://lvl/1.tscn"
+run/main_scene="res://lvl/0.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
