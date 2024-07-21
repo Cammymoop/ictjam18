@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://d02otlg6wookw"]
+
+[ext_resource type="PackedScene" uid="uid://bv7v64amyvle4" path="res://characterMedium.fbx" id="1_n8sxu"]
+[ext_resource type="Script" path="res://src/spinner.gd" id="2_kx4kb"]
+[ext_resource type="PackedScene" uid="uid://gy7cyhrphbyv" path="res://model/combined/log.glb" id="3_sd887"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="characterMedium" parent="." instance=ExtResource("1_n8sxu")]
+
+[node name="Spinner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.40184, 0)
+script = ExtResource("2_kx4kb")
+
+[node name="Node3D" type="Node3D" parent="Spinner"]
+transform = Transform3D(1, 0, 0, 0, 0.912449, 0.409191, 0, -0.409191, 0.912449, 0, 2.2848, 5.46774)
+
+[node name="log" parent="Spinner/Node3D" instance=ExtResource("3_sd887")]
+transform = Transform3D(0.771014, -0.240379, -0.589708, 0, 0.926022, -0.377469, 0.636819, 0.291034, 0.713976, 0.288794, 0.174268, -0.274805)
+
+[node name="log2" parent="Spinner/Node3D" instance=ExtResource("3_sd887")]
+transform = Transform3D(0.809273, 0.221737, 0.543975, 0, 0.926022, -0.377469, -0.587432, 0.305476, 0.749405, -0.266398, 0.174268, -0.292156)
+
+[node name="log3" parent="Spinner/Node3D" instance=ExtResource("3_sd887")]
+transform = Transform3D(0.771014, -0.240379, -0.589708, 0.471295, 0.838158, 0.274541, 0.428274, -0.489601, 0.759521, 0.288794, -0.141569, -0.289274)
+
+[node name="log4" parent="Spinner/Node3D" instance=ExtResource("3_sd887")]
+transform = Transform3D(0.809273, 0.221737, 0.543975, -0.434745, 0.848846, 0.300762, -0.395061, -0.479889, 0.783348, -0.266398, -0.15441, -0.300943)
+
+[node name="log5" parent="Spinner/Node3D" instance=ExtResource("3_sd887")]
+transform = Transform3D(-4.37114e-08, 0, -1.266, 0, 1, 0, 1, 0, -5.53386e-08, 0.0352508, -0.232188, -0.677763)
+
+[node name="log6" parent="Spinner/Node3D" instance=ExtResource("3_sd887")]
+transform = Transform3D(-4.37114e-08, 0, -1.266, 0, 1, 0, 1, 0, -5.53386e-08, 0.0352508, 0.354673, -0.677763)
+
+[node name="log7" parent="Spinner/Node3D" instance=ExtResource("3_sd887")]
+transform = Transform3D(-4.37114e-08, 1, 2.75798e-08, 0, -4.37114e-08, 0.630952, 1, 4.37114e-08, 0, 0.568029, 0.0771406, -0.677763)
+
+[node name="log8" parent="Spinner/Node3D" instance=ExtResource("3_sd887")]
+transform = Transform3D(-4.37114e-08, 1, 2.75798e-08, 0, -4.37114e-08, 0.630952, 1, 4.37114e-08, 0, -0.58013, 0.0771406, -0.677763)

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvxwxnnjpxd36"
-path.s3tc="res://.godot/imported/racerRedMale.png-18dbee4bcdf4be30e10db3d37fc81b04.s3tc.ctex"
+uid="uid://b2x5osy8nt2he"
+path.s3tc="res://.godot/imported/emote_laugh.png-610f6354b88ba8036c57e9b48adf25e0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://texture/player/racerRedMale.png"
-dest_files=["res://.godot/imported/racerRedMale.png-18dbee4bcdf4be30e10db3d37fc81b04.s3tc.ctex"]
+source_file="res://texture/emote/emote_laugh.png"
+dest_files=["res://.godot/imported/emote_laugh.png-610f6354b88ba8036c57e9b48adf25e0.s3tc.ctex"]
 
 [params]
 

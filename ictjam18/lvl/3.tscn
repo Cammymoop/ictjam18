@@ -1,25 +1,25 @@
-[gd_scene load_steps=33 format=3 uid="uid://bxtfoweo1iq0w"]
+[gd_scene load_steps=33 format=3 uid="uid://xdrxy3i4iinf"]
 
-[ext_resource type="Script" path="res://src/lvl.gd" id="1_oi0tc"]
-[ext_resource type="PackedScene" uid="uid://qw8clvhat4hh" path="res://src/player.tscn" id="1_yalby"]
-[ext_resource type="PackedScene" uid="uid://bagqqbqtwqrda" path="res://src/tower_square.tscn" id="2_p13s7"]
-[ext_resource type="PackedScene" uid="uid://bc3i7joacmkdj" path="res://src/sink_tower.tscn" id="3_1k3fi"]
-[ext_resource type="PackedScene" uid="uid://dfbrhfbf4ljtj" path="res://src/loop_tower.tscn" id="3_ey1qe"]
-[ext_resource type="Script" path="res://src/resetter.gd" id="3_xywgf"]
-[ext_resource type="PackedScene" uid="uid://d2jdxkpge0x7" path="res://src/hex_tower_solid.tscn" id="4_4qn77"]
-[ext_resource type="PackedScene" uid="uid://lby3tbjqsdqu" path="res://src/wood.tscn" id="4_6wfdo"]
-[ext_resource type="PackedScene" uid="uid://b38v5seimhs5a" path="res://src/just_plat.tscn" id="4_8coi7"]
-[ext_resource type="PackedScene" uid="uid://bed3u4itpv8lt" path="res://src/wall_stairs.tscn" id="5_vow3h"]
-[ext_resource type="Texture2D" uid="uid://bkh0fus1tfqfl" path="res://texture/pattern_25_light.png" id="6_dgj18"]
-[ext_resource type="PackedScene" uid="uid://bett8r7gnpm37" path="res://model/combined/hex_tower_mid.glb" id="7_apr12"]
-[ext_resource type="PackedScene" uid="uid://bmnxe0b3m66do" path="res://src/wall_narrow.tscn" id="8_1jbrs"]
-[ext_resource type="PackedScene" uid="uid://bba6txi5kd25m" path="res://model/combined/wall_narrow.glb" id="8_7k8mf"]
-[ext_resource type="PackedScene" uid="uid://bubab0eq8muxf" path="res://src/windmiller.tscn" id="9_10k4a"]
-[ext_resource type="Texture2D" uid="uid://dcudej1vgp81e" path="res://texture/yellow/paint_arrow_right.png" id="9_vf5pk"]
-[ext_resource type="Texture2D" uid="uid://br6yjb4jpuvcx" path="res://texture/yellow/paint_circle_a.png" id="10_8cwsm"]
-[ext_resource type="PackedScene" uid="uid://b4202fgf5riut" path="res://src/end_goal.tscn" id="11_110un"]
-[ext_resource type="Script" path="res://src/area_3d.gd" id="12_35k6n"]
-[ext_resource type="Texture2D" uid="uid://bv6t8xvplealv" path="res://texture/pattern_80.png" id="15_g55lm"]
+[ext_resource type="Script" path="res://src/lvl.gd" id="1_700xh"]
+[ext_resource type="PackedScene" uid="uid://qw8clvhat4hh" path="res://src/player.tscn" id="2_5nxml"]
+[ext_resource type="PackedScene" uid="uid://bagqqbqtwqrda" path="res://src/tower_square.tscn" id="3_4gqv1"]
+[ext_resource type="PackedScene" uid="uid://bc3i7joacmkdj" path="res://src/sink_tower.tscn" id="4_fp8tw"]
+[ext_resource type="PackedScene" uid="uid://d2jdxkpge0x7" path="res://src/hex_tower_solid.tscn" id="5_rriyw"]
+[ext_resource type="PackedScene" uid="uid://dfbrhfbf4ljtj" path="res://src/loop_tower.tscn" id="6_hvofx"]
+[ext_resource type="PackedScene" uid="uid://b38v5seimhs5a" path="res://src/just_plat.tscn" id="7_j2gw4"]
+[ext_resource type="PackedScene" uid="uid://bed3u4itpv8lt" path="res://src/wall_stairs.tscn" id="8_5bdtc"]
+[ext_resource type="PackedScene" uid="uid://bmnxe0b3m66do" path="res://src/wall_narrow.tscn" id="9_rlx8u"]
+[ext_resource type="PackedScene" uid="uid://bett8r7gnpm37" path="res://model/combined/hex_tower_mid.glb" id="10_5u8tk"]
+[ext_resource type="PackedScene" uid="uid://bba6txi5kd25m" path="res://model/combined/wall_narrow.glb" id="11_cb6wh"]
+[ext_resource type="Texture2D" uid="uid://dcudej1vgp81e" path="res://texture/yellow/paint_arrow_right.png" id="12_k5f6p"]
+[ext_resource type="Texture2D" uid="uid://br6yjb4jpuvcx" path="res://texture/yellow/paint_circle_a.png" id="13_prny5"]
+[ext_resource type="PackedScene" uid="uid://lby3tbjqsdqu" path="res://src/wood.tscn" id="14_ekfrb"]
+[ext_resource type="PackedScene" uid="uid://b4202fgf5riut" path="res://src/end_goal.tscn" id="15_7a1tn"]
+[ext_resource type="Script" path="res://src/resetter.gd" id="16_iwyiu"]
+[ext_resource type="Texture2D" uid="uid://bkh0fus1tfqfl" path="res://texture/pattern_25_light.png" id="17_fdnqx"]
+[ext_resource type="Texture2D" uid="uid://bv6t8xvplealv" path="res://texture/pattern_80.png" id="18_wy53f"]
+[ext_resource type="Script" path="res://src/area_3d.gd" id="19_xdwiv"]
+[ext_resource type="PackedScene" uid="uid://bubab0eq8muxf" path="res://src/windmiller.tscn" id="20_31ssa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cygyu"]
 sky_top_color = Color(0.174092, 0.204825, 0.299035, 1)
@@ -48,11 +48,11 @@ subdivide_depth = 10
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.757699, 0.205067, 0.197193, 1)
-albedo_texture = ExtResource("6_dgj18")
+albedo_texture = ExtResource("17_fdnqx")
 detail_enabled = true
 detail_blend_mode = 2
 detail_uv_layer = 1
-detail_albedo = ExtResource("15_g55lm")
+detail_albedo = ExtResource("18_wy53f")
 uv1_scale = Vector3(0.209487, 0.209487, 0.209487)
 uv1_triplanar = true
 uv1_world_triplanar = true
@@ -65,6 +65,21 @@ distance_fade_max_distance = 100.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cjyo1"]
 size = Vector3(2000, 2, 2000)
+
+[sub_resource type="Animation" id="Animation_32u8f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_mk758"]
 resource_name = "awve"
@@ -84,12 +99,18 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-1, 0, -1)]
 }
 
-[sub_resource type="Animation" id="Animation_32u8f"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yaptc"]
+_data = {
+"RESET": SubResource("Animation_32u8f"),
+"awve": SubResource("Animation_mk758")
+}
+
+[sub_resource type="Animation" id="Animation_pqvg7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:surface_material_override/0:uv1_offset")
+tracks/0/path = NodePath(".:surface_material_override/0:uv2_offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -97,12 +118,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yaptc"]
-_data = {
-"RESET": SubResource("Animation_32u8f"),
-"awve": SubResource("Animation_mk758")
 }
 
 [sub_resource type="Animation" id="Animation_xon5m"]
@@ -123,21 +138,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(1, 0, -2)]
 }
 
-[sub_resource type="Animation" id="Animation_pqvg7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:surface_material_override/0:uv2_offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhvk6"]
 _data = {
 "RESET": SubResource("Animation_pqvg7"),
@@ -145,7 +145,7 @@ _data = {
 }
 
 [node name="LVL" type="Node3D"]
-script = ExtResource("1_oi0tc")
+script = ExtResource("1_700xh")
 
 [node name="Env" type="Node3D" parent="."]
 
@@ -184,7 +184,7 @@ light_color = Color(0.944696, 0.55355, 0.529143, 1)
 light_energy = 0.8
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("1_yalby")]
+[node name="Player" parent="." instance=ExtResource("2_5nxml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -0.161081, 12.7785)
 cam = NodePath("../Camera3D")
 
@@ -194,46 +194,46 @@ current = true
 
 [node name="LevelStuff" type="Node3D" parent="."]
 
-[node name="TowerSquare" parent="LevelStuff" instance=ExtResource("2_p13s7")]
+[node name="TowerSquare" parent="LevelStuff" instance=ExtResource("3_4gqv1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.7785)
 
-[node name="SinkTower" parent="LevelStuff" instance=ExtResource("3_1k3fi")]
+[node name="SinkTower" parent="LevelStuff" instance=ExtResource("4_fp8tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3.22151)
 
-[node name="HexTowerSolid" parent="LevelStuff" instance=ExtResource("4_4qn77")]
+[node name="HexTowerSolid" parent="LevelStuff" instance=ExtResource("5_rriyw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -15.2626)
 
-[node name="TowerSquare3" parent="LevelStuff" instance=ExtResource("2_p13s7")]
+[node name="TowerSquare3" parent="LevelStuff" instance=ExtResource("3_4gqv1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, -2.45957, -43)
 
-[node name="LoopTower" parent="LevelStuff" instance=ExtResource("3_ey1qe")]
+[node name="LoopTower" parent="LevelStuff" instance=ExtResource("6_hvofx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -37)
 
-[node name="JustPlat" parent="LevelStuff/LoopTower" instance=ExtResource("4_8coi7")]
+[node name="JustPlat" parent="LevelStuff/LoopTower" instance=ExtResource("7_j2gw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9927, 15.4948, -10.9892)
 
-[node name="JustPlat2" parent="LevelStuff/LoopTower" instance=ExtResource("4_8coi7")]
+[node name="JustPlat2" parent="LevelStuff/LoopTower" instance=ExtResource("7_j2gw4")]
 transform = Transform3D(0.933386, 0, -0.358873, 0, 1, 0, 0.358873, 0, 0.933386, -9.86066, 16.6649, -11.0353)
 
-[node name="JustPlat4" parent="LevelStuff/LoopTower" instance=ExtResource("4_8coi7")]
+[node name="JustPlat4" parent="LevelStuff/LoopTower" instance=ExtResource("7_j2gw4")]
 transform = Transform3D(0.935641, 0, -0.352952, 0, 1, 0, 0.352952, 0, 0.935641, -9.86571, 17.7874, -11.0344)
 
-[node name="JustPlat3" parent="LevelStuff/LoopTower" instance=ExtResource("4_8coi7")]
+[node name="JustPlat3" parent="LevelStuff/LoopTower" instance=ExtResource("7_j2gw4")]
 transform = Transform3D(0.997064, 0, 0.0765798, 0, 1, 0, -0.0765798, 0, 0.997064, -9.59481, 18.9292, -13.2289)
 
-[node name="WallStairs" parent="LevelStuff/LoopTower" instance=ExtResource("5_vow3h")]
+[node name="WallStairs" parent="LevelStuff/LoopTower" instance=ExtResource("8_5bdtc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24, 14, -6)
 
-[node name="WallNarrow" parent="LevelStuff/LoopTower" instance=ExtResource("8_1jbrs")]
+[node name="WallNarrow" parent="LevelStuff/LoopTower" instance=ExtResource("9_rlx8u")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 14, -6)
 
-[node name="hex_tower_mid" parent="LevelStuff/LoopTower/WallNarrow" instance=ExtResource("7_apr12")]
+[node name="hex_tower_mid" parent="LevelStuff/LoopTower/WallNarrow" instance=ExtResource("10_5u8tk")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.07845, 0.172104, 5.01041)
 
 [node name="WallNarrow2" type="Node3D" parent="LevelStuff/LoopTower"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 14, -6)
 
-[node name="wall_narrow" parent="LevelStuff/LoopTower/WallNarrow2" instance=ExtResource("8_7k8mf")]
+[node name="wall_narrow" parent="LevelStuff/LoopTower/WallNarrow2" instance=ExtResource("11_cb6wh")]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, -15, 0)
 
 [node name="wall-narrow" parent="LevelStuff/LoopTower/WallNarrow2/wall_narrow" index="0"]
@@ -242,29 +242,29 @@ layers = 7
 [node name="Decal" type="Decal" parent="LevelStuff/LoopTower/WallNarrow2"]
 transform = Transform3D(-8.74228e-08, 1, 3.55271e-15, 3.55271e-15, 3.55271e-15, -1, -1, -8.74228e-08, -1.55294e-22, -0.528316, -5.9614, -2.25265)
 size = Vector3(6, 1.26648, 5.35483)
-texture_albedo = ExtResource("9_vf5pk")
+texture_albedo = ExtResource("12_k5f6p")
 modulate = Color(1.7, 2, 2, 1)
 cull_mask = 1048574
 
 [node name="Decal2" type="Decal" parent="LevelStuff/LoopTower/WallNarrow2"]
 transform = Transform3D(8.74228e-08, 1, -7.37408e-15, -8.74228e-08, 3.55271e-15, -1, -1, 8.74228e-08, 8.74228e-08, -0.213806, -5.78042, 2.74431)
 visible = false
-texture_emission = ExtResource("10_8cwsm")
+texture_emission = ExtResource("13_prny5")
 
-[node name="Wood" parent="LevelStuff" instance=ExtResource("4_6wfdo")]
+[node name="Wood" parent="LevelStuff" instance=ExtResource("14_ekfrb")]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 20, 0, 11.7785)
 
-[node name="WallNarrow" parent="LevelStuff" instance=ExtResource("8_1jbrs")]
+[node name="WallNarrow" parent="LevelStuff" instance=ExtResource("9_rlx8u")]
 transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -20.864, -1, -65.6573)
 
-[node name="WallNarrow2" parent="LevelStuff" instance=ExtResource("8_1jbrs")]
+[node name="WallNarrow2" parent="LevelStuff" instance=ExtResource("9_rlx8u")]
 transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -20.864, 13.0495, -65.6573)
 
-[node name="EndGoal" parent="LevelStuff" instance=ExtResource("11_110un")]
+[node name="EndGoal" parent="LevelStuff" instance=ExtResource("15_7a1tn")]
 transform = Transform3D(0.503638, 0, -0.863915, 0, 1, 0, 0.863915, 0, 0.503638, -22.0196, 10.665, -82.205)
 
 [node name="Resetter" type="Node" parent="."]
-script = ExtResource("3_xywgf")
+script = ExtResource("16_iwyiu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.5886, 0)
@@ -275,7 +275,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_m0wwk")
 collision_layer = 0
 collision_mask = 2
 monitorable = false
-script = ExtResource("12_35k6n")
+script = ExtResource("19_xdwiv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -293,7 +293,7 @@ libraries = {
 }
 autoplay = "kljdflk"
 
-[node name="Windmiller" parent="." instance=ExtResource("9_10k4a")]
+[node name="Windmiller" parent="." instance=ExtResource("20_31ssa")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.3846, -30.8449, -95.8924)
 spin_speed = 10.0
 

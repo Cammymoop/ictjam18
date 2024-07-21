@@ -1,0 +1,375 @@
+[gd_scene load_steps=26 format=3 uid="uid://bf77bu0tgpyb6"]
+
+[ext_resource type="Script" path="res://src/lvl.gd" id="1_rufsb"]
+[ext_resource type="PackedScene" uid="uid://qw8clvhat4hh" path="res://src/player.tscn" id="2_pb3q5"]
+[ext_resource type="PackedScene" uid="uid://rbf8bixtldqc" path="res://src/moving_plat.tscn" id="5_ofdcx"]
+[ext_resource type="PackedScene" uid="uid://d2jdxkpge0x7" path="res://src/hex_tower_solid.tscn" id="5_ygc3v"]
+[ext_resource type="Script" path="res://src/moving_plat.gd" id="7_3sir6"]
+[ext_resource type="PackedScene" uid="uid://b8bg2e8oc0ksu" path="res://src/platform.tscn" id="8_mtvh3"]
+[ext_resource type="PackedScene" uid="uid://lby3tbjqsdqu" path="res://src/wood.tscn" id="14_jwrv2"]
+[ext_resource type="PackedScene" uid="uid://b4202fgf5riut" path="res://src/end_goal.tscn" id="15_00di4"]
+[ext_resource type="Script" path="res://src/resetter.gd" id="16_l6xic"]
+[ext_resource type="Texture2D" uid="uid://bkh0fus1tfqfl" path="res://texture/pattern_25_light.png" id="17_jodav"]
+[ext_resource type="Texture2D" uid="uid://bv6t8xvplealv" path="res://texture/pattern_80.png" id="18_im2q5"]
+[ext_resource type="Script" path="res://src/area_3d.gd" id="19_bjxcf"]
+[ext_resource type="PackedScene" uid="uid://bubab0eq8muxf" path="res://src/windmiller.tscn" id="20_lovx8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cygyu"]
+sky_top_color = Color(0.174092, 0.204825, 0.299035, 1)
+sky_horizon_color = Color(0.166323, 0.113343, 0.213857, 1)
+sky_energy_multiplier = 0.8
+ground_bottom_color = Color(0.436127, 0.103508, 0.0849306, 1)
+ground_horizon_color = Color(0.629777, 0.176987, 0.184934, 1)
+ground_energy_multiplier = 2.0
+
+[sub_resource type="Sky" id="Sky_wau4r"]
+sky_material = SubResource("ProceduralSkyMaterial_cygyu")
+
+[sub_resource type="Environment" id="Environment_8ddsa"]
+background_mode = 2
+sky = SubResource("Sky_wau4r")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_015h3"]
+size = Vector2(1500, 1500)
+subdivide_width = 10
+subdivide_depth = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0wwk"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.757699, 0.205067, 0.197193, 1)
+albedo_texture = ExtResource("17_jodav")
+detail_enabled = true
+detail_blend_mode = 2
+detail_uv_layer = 1
+detail_albedo = ExtResource("18_im2q5")
+uv1_scale = Vector3(0.209487, 0.209487, 0.209487)
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_scale = Vector3(0.05, 0.05, 0.05)
+uv2_triplanar = true
+uv2_world_triplanar = true
+distance_fade_mode = 1
+distance_fade_min_distance = 270.0
+distance_fade_max_distance = 100.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cjyo1"]
+size = Vector3(2000, 2, 2000)
+
+[sub_resource type="Animation" id="Animation_32u8f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mk758"]
+resource_name = "awve"
+length = 5.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1, 0, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yaptc"]
+_data = {
+"RESET": SubResource("Animation_32u8f"),
+"awve": SubResource("Animation_mk758")
+}
+
+[sub_resource type="Animation" id="Animation_pqvg7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:uv2_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xon5m"]
+resource_name = "kljdflk"
+length = 17.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:uv2_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 0, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhvk6"]
+_data = {
+"RESET": SubResource("Animation_pqvg7"),
+"kljdflk": SubResource("Animation_xon5m")
+}
+
+[node name="LVL" type="Node3D"]
+script = ExtResource("1_rufsb")
+next_level = "res://lvl/3.tscn"
+
+[node name="Env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Env"]
+environment = SubResource("Environment_8ddsa")
+
+[node name="SkyLight" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-0.990263, -0.0518975, -0.129176, -0.128999, -0.00676062, 0.991622, -0.052336, 0.99863, 6.58686e-08, 6.60567, 0, -12.1725)
+light_color = Color(0.603699, 0.748185, 0.802819, 1)
+light_energy = 0.4
+light_angular_distance = 8.0
+shadow_enabled = true
+sky_mode = 1
+
+[node name="LavaSun" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(1, 0, 0, 0, -0.707107, -0.707107, 0, 0.707107, -0.707107, 7.59926, 0, -6.16359)
+light_color = Color(0.944696, 0.55355, 0.529143, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="LavaSun2" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-4.37114e-08, -0.707107, 0.707107, 0, -0.707107, -0.707107, 1, -3.09086e-08, 3.09086e-08, 7.59926, 0, -6.16359)
+light_color = Color(0.944696, 0.55355, 0.529143, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="LavaSun3" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, -0.707107, -0.707107, -8.74228e-08, -0.707107, 0.707107, 7.59926, 0, -6.16359)
+light_color = Color(0.944696, 0.55355, 0.529143, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="LavaSun4" type="DirectionalLight3D" parent="Env"]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, -0.707107, -0.707107, -1, -3.09086e-08, 3.09086e-08, 7.59926, 0, -6.16359)
+light_color = Color(0.944696, 0.55355, 0.529143, 1)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_pb3q5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, -0.161081, 12.7785)
+cam = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.877582, -0.229849, 0.420736, 0, 0.877582, 0.479426, -0.479426, -0.420736, 0.770151, 28.7667, 6.57113, 23.3344)
+current = true
+
+[node name="LevelStuff" type="Node3D" parent="."]
+
+[node name="Wood" parent="LevelStuff" instance=ExtResource("14_jwrv2")]
+transform = Transform3D(-0.977533, 0, -0.210779, 0, 1, 0, 0.210779, 0, -0.977533, 21.6583, 0, 8.75039)
+
+[node name="Wood2" parent="LevelStuff" instance=ExtResource("14_jwrv2")]
+transform = Transform3D(0.877539, 0, 0.479504, 0, 1, 0, -0.479504, 0, 0.877539, -13.5046, 0, -5.49721)
+
+[node name="MovingPlat2" type="Node3D" parent="LevelStuff"]
+transform = Transform3D(0.944319, 0, 0.329031, 0, 1, 0, -0.329031, 0, 0.944319, -47.2942, 56.7012, -94.5012)
+script = ExtResource("7_3sir6")
+metadata/_edit_group_ = true
+
+[node name="Platform" parent="LevelStuff/MovingPlat2" instance=ExtResource("8_mtvh3")]
+transform = Transform3D(0.0658386, 0, 0.99783, 0, 1, 0, -0.99783, 0, 0.0658386, 0, 0, 0)
+
+[node name="Marker3D" type="Marker3D" parent="LevelStuff/MovingPlat2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8154, 5.42541, 17.37)
+
+[node name="Timer1" type="Timer" parent="LevelStuff/MovingPlat2"]
+wait_time = 2.4
+one_shot = true
+
+[node name="Wait1" type="Timer" parent="LevelStuff/MovingPlat2"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="LevelStuff/MovingPlat2"]
+wait_time = 2.4
+one_shot = true
+
+[node name="Wait2" type="Timer" parent="LevelStuff/MovingPlat2"]
+wait_time = 0.2
+one_shot = true
+
+[node name="EndGoal" parent="LevelStuff" instance=ExtResource("15_00di4")]
+transform = Transform3D(0.994785, 0, 0.101994, 0, 1, 0, -0.101994, 0, 0.994785, -38.2076, 61.2929, -68.5793)
+
+[node name="HexTowerSolid2" parent="LevelStuff/EndGoal" instance=ExtResource("5_ygc3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.0933, 0)
+
+[node name="MovingPlat" parent="LevelStuff" instance=ExtResource("5_ofdcx")]
+transform = Transform3D(0.373474, 0, -0.927641, 0, 1, 0, 0.927641, 0, 0.373474, -1.57461, 0, -10.1808)
+metadata/_edit_group_ = true
+
+[node name="Marker3D" parent="LevelStuff/MovingPlat" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6727, 0, -0.0301546)
+
+[node name="Timer1" parent="LevelStuff/MovingPlat" index="2"]
+wait_time = 1.3
+
+[node name="MovingPlat7" parent="LevelStuff" instance=ExtResource("5_ofdcx")]
+transform = Transform3D(0.944319, 0, 0.329031, 0, 1, 0, -0.329031, 0, 0.944319, -15.8139, 30.2929, -56.5214)
+metadata/_edit_group_ = true
+
+[node name="Marker3D" parent="LevelStuff/MovingPlat7" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2906, 0, 0)
+
+[node name="Wait1" parent="LevelStuff/MovingPlat7" index="3"]
+wait_time = 0.6
+
+[node name="Wait2" parent="LevelStuff/MovingPlat7" index="5"]
+wait_time = 0.6
+
+[node name="MovingPlat6" parent="LevelStuff" instance=ExtResource("5_ofdcx")]
+transform = Transform3D(0.944319, 0, 0.329031, 0, 1, 0, -0.329031, 0, 0.944319, -15.8139, 62.2735, -56.5214)
+metadata/_edit_group_ = true
+
+[node name="Marker3D" parent="LevelStuff/MovingPlat6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.1348, 0, 0)
+
+[node name="Wait1" parent="LevelStuff/MovingPlat6" index="3"]
+wait_time = 0.6
+
+[node name="Wait2" parent="LevelStuff/MovingPlat6" index="5"]
+wait_time = 0.6
+
+[node name="MovingPlat3" parent="LevelStuff" instance=ExtResource("5_ofdcx")]
+transform = Transform3D(0.318546, 0, -0.947907, 0, 1, 0, 0.947907, 0, 0.318546, 3.43711, 30.2929, -115.369)
+metadata/_edit_group_ = true
+
+[node name="Marker3D" parent="LevelStuff/MovingPlat3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2906, 0, 0)
+
+[node name="Wait1" parent="LevelStuff/MovingPlat3" index="3"]
+wait_time = 0.6
+
+[node name="Wait2" parent="LevelStuff/MovingPlat3" index="5"]
+wait_time = 0.6
+
+[node name="MovingPlat5" parent="LevelStuff" instance=ExtResource("5_ofdcx")]
+transform = Transform3D(0.984288, 0, 0.176569, 0, 1, 0, -0.176569, 0, 0.984288, -0.747696, 30.2929, -127.822)
+metadata/_edit_group_ = true
+
+[node name="Marker3D" parent="LevelStuff/MovingPlat5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.694611, 30.5684, -4.76837e-07)
+
+[node name="Wait1" parent="LevelStuff/MovingPlat5" index="3"]
+wait_time = 0.6
+
+[node name="Wait2" parent="LevelStuff/MovingPlat5" index="5"]
+wait_time = 0.6
+
+[node name="MovingPlat4" parent="LevelStuff" instance=ExtResource("5_ofdcx")]
+transform = Transform3D(-0.165943, 0, 0.986135, 0, 1, 0, -0.986135, 0, -0.165943, 10.2364, 61.9638, -74.9632)
+easing = 1.8
+metadata/_edit_group_ = true
+
+[node name="Marker3D" parent="LevelStuff/MovingPlat4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.3477, 0, -2.98023e-08)
+
+[node name="Wait1" parent="LevelStuff/MovingPlat4" index="3"]
+wait_time = 0.6
+
+[node name="Wait2" parent="LevelStuff/MovingPlat4" index="5"]
+wait_time = 0.6
+
+[node name="HexTowerSolid" parent="LevelStuff" instance=ExtResource("5_ygc3v")]
+transform = Transform3D(1.9334, 0, 0.511836, 0, 2, 0, -0.511836, 0, 1.9334, -11.7804, 3.56273, -41.5724)
+
+[node name="HexTowerSolid2" parent="LevelStuff" instance=ExtResource("5_ygc3v")]
+transform = Transform3D(1.9334, 0, 0.511836, 0, 2, 0, -0.511836, 0, 1.9334, -11.7804, 31.8179, -41.5724)
+
+[node name="Platform" parent="LevelStuff" instance=ExtResource("8_mtvh3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2388, 59.6086, -67.1018)
+
+[node name="Platform2" parent="LevelStuff" instance=ExtResource("8_mtvh3")]
+transform = Transform3D(0.945266, 0.0524754, 0.322053, -0.0496717, 0.998622, -0.0169232, -0.322497, 0, 0.946571, -14.4192, 60.008, -77.1728)
+
+[node name="Platform6" parent="LevelStuff" instance=ExtResource("8_mtvh3")]
+transform = Transform3D(-0.632, -0.368, 0.682021, -0.452254, 0.889799, 0.0610265, -0.629319, -0.269878, -0.728782, -32.687, 59.6086, -81.8217)
+
+[node name="Platform3" parent="LevelStuff" instance=ExtResource("8_mtvh3")]
+transform = Transform3D(0.502824, 0, -0.864389, 0, 1, 0, 0.864389, 0, 0.502824, -30.6455, 58.4693, -72.4355)
+
+[node name="Platform4" parent="LevelStuff" instance=ExtResource("8_mtvh3")]
+transform = Transform3D(-0.00234297, 0.979659, -0.200658, -0.999975, -0.00364089, -0.00609937, -0.00670587, 0.200638, 0.979643, -25.6542, 65.0737, -70.2889)
+
+[node name="Platform5" parent="LevelStuff" instance=ExtResource("8_mtvh3")]
+transform = Transform3D(-0.00234297, 0.979659, -0.200658, -0.999975, -0.00364089, -0.00609937, -0.00670587, 0.200638, 0.979643, -26.4895, 66.0627, -63.9052)
+
+[node name="Resetter" type="Node" parent="."]
+script = ExtResource("16_l6xic")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.5886, 0)
+mesh = SubResource("PlaneMesh_015h3")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0wwk")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("19_bjxcf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_cjyo1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D"]
+libraries = {
+"": SubResource("AnimationLibrary_yaptc")
+}
+autoplay = "awve"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="MeshInstance3D"]
+libraries = {
+"": SubResource("AnimationLibrary_qhvk6")
+}
+autoplay = "kljdflk"
+
+[node name="Windmiller" parent="." instance=ExtResource("20_lovx8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38.0482, -17.8411, -54.4337)
+spin_speed = 3.0
+
+[connection signal="timeout" from="LevelStuff/MovingPlat2/Timer1" to="LevelStuff/MovingPlat2" method="_on_timer_1_timeout"]
+[connection signal="timeout" from="LevelStuff/MovingPlat2/Wait1" to="LevelStuff/MovingPlat2" method="_on_wait_1_timeout"]
+[connection signal="timeout" from="LevelStuff/MovingPlat2/Timer2" to="LevelStuff/MovingPlat2" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="LevelStuff/MovingPlat2/Wait2" to="LevelStuff/MovingPlat2" method="_on_wait_2_timeout"]
+[connection signal="body_entered" from="MeshInstance3D/Area3D" to="MeshInstance3D/Area3D" method="_on_body_entered"]
+
+[editable path="LevelStuff/MovingPlat"]
+[editable path="LevelStuff/MovingPlat7"]
+[editable path="LevelStuff/MovingPlat6"]
+[editable path="LevelStuff/MovingPlat3"]
+[editable path="LevelStuff/MovingPlat5"]
+[editable path="LevelStuff/MovingPlat4"]

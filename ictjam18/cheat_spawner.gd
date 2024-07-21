@@ -8,6 +8,9 @@ func save_location(n: Node3D) -> void:
 	location = n.global_position
 	path = n.get_path()
 
+func remove_location() -> void:
+	location = Vector3.ZERO
+
 func _on_scene_load() -> void:
 	if path and get_node_or_null(path):
 		if location != Vector3.ZERO:

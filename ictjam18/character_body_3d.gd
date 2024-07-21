@@ -3,9 +3,12 @@ extends StairsCharacter
 @onready var char_model: Node3D = $CharModel
 
 @onready var cam_pivot_root: Node3D = $CamPivotRoot
+@onready var cam_pivot_height: Node3D = $CamPivotRoot/CamPivotHeight
 @onready var cam_target: Node3D = $CamPivotRoot/CamPivotHeight/CamSpring/CamTarget
 
 @export var cam: NodePath
+
+@export var lock_cam: bool = false
 
 var mark = preload("res://src/marker.tscn")
 
@@ -15,12 +18,16 @@ const DEACCEL = 6.0
 const JUMP_VELOCITY = 29.5
 
 const CAM_H_SPEED = 3.2
+const CAM_V_SPEED = 3.2
 
 const JUMP_STRETCH = 1.24
 const FALL_CUTOFF = -22
 const BIG_FALL = -32
 
 const CAYOTE_FRAMES = 23
+
+const MIN_CAM_HEIGHT = deg_to_rad(-54)
+const MAX_CAM_HEIGHT = deg_to_rad(-12)
 
 var v_stretch: = 1.0
 
@@ -39,8 +46,19 @@ var won: = false
 
 func _process(delta: float) -> void:
 	var cam_spin: = Input.get_axis("cam_left", "cam_right")
-	if cam_spin != 0:
+	if cam_spin != 0 and not lock_cam:
 		cam_pivot_root.rotate_y(cam_spin * delta * CAM_H_SPEED)
+	
+	var cam_elevation: = Input.get_axis("cam_down", "cam_up")
+	if cam_elevation != 0 and not lock_cam:
+		cam_pivot_height.rotate_object_local(Vector3.LEFT, cam_elevation * delta * CAM_V_SPEED)
+		var euler: = cam_pivot_height.transform.basis.get_euler()
+		prints(euler.x, MIN_CAM_HEIGHT, MAX_CAM_HEIGHT)
+		var x_ang: = clampf(euler.x, MIN_CAM_HEIGHT, MAX_CAM_HEIGHT)
+		var e = Vector3(x_ang, euler.y, euler.z)
+		cam_pivot_height.transform.basis = Basis.from_euler(Vector3(x_ang, euler.y, euler.z))
+		#prints(e, cam_pivot_height.transform.basis.get_euler())
+		
 	
 	v_stretch = move_toward(v_stretch, 1.0, 1.1 * delta)
 	char_model.set_v_stretch(v_stretch)
@@ -112,7 +130,7 @@ func _physics_process(delta: float) -> void:
 	# Rotate model
 	var facing_vec: = Vector3(velocity.x, 0, velocity.z)
 	if facing_vec.length_squared() > 0:
-		char_model.transform.basis = char_model.transform.basis.slerp(Basis.looking_at(facing_vec, Vector3.UP, true), 0.17)
+		char_model.global_transform.basis = char_model.global_transform.basis.slerp(Basis.looking_at(facing_vec, Vector3.UP, true), 0.17)
 	
 	if grounded:
 		var h_vel: = Vector2(velocity.x, velocity.z)
