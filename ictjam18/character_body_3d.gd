@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 	if cam_elevation != 0 and not lock_cam:
 		cam_pivot_height.rotate_object_local(Vector3.LEFT, cam_elevation * delta * CAM_V_SPEED)
 		var euler: = cam_pivot_height.transform.basis.get_euler()
-		prints(euler.x, MIN_CAM_HEIGHT, MAX_CAM_HEIGHT)
+		#prints(euler.x, MIN_CAM_HEIGHT, MAX_CAM_HEIGHT)
 		var x_ang: = clampf(euler.x, MIN_CAM_HEIGHT, MAX_CAM_HEIGHT)
 		var e = Vector3(x_ang, euler.y, euler.z)
 		cam_pivot_height.transform.basis = Basis.from_euler(Vector3(x_ang, euler.y, euler.z))

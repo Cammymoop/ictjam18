@@ -6,6 +6,79 @@
 [ext_resource type="FontFile" uid="uid://mbp83vf5xtl3" path="res://font/Kenney Bold.ttf" id="4_32oe6"]
 [ext_resource type="Texture2D" uid="uid://kup0quq2i5t6" path="res://texture/splat/splat00.png" id="4_hxp01"]
 
+[sub_resource type="Animation" id="Animation_x7hb0"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/Sprite2D4:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/Sprite2D2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 3.858)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/Sprite2D3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
 [sub_resource type="Animation" id="Animation_3amph"]
 resource_name = "transition"
 length = 4.0
@@ -165,79 +238,6 @@ tracks/3/keys = {
 "values": [Vector2(3.74907, 3.70046), Vector2(1e-05, 1e-05)]
 }
 
-[sub_resource type="Animation" id="Animation_x7hb0"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Sprite2D:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Sprite2D:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/Sprite2D4:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/Sprite2D:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/Sprite2D2:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 3.858)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Control/Sprite2D3:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nuspp"]
 _data = {
 "RESET": SubResource("Animation_x7hb0"),
@@ -288,9 +288,10 @@ offset_top = -26.1868
 offset_right = 57.4231
 offset_bottom = 19.8132
 rotation = 0.202923
+scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.245499, 0.574457, 0.479165, 1)
 theme_override_fonts/font = ExtResource("4_32oe6")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 60
 text = "NOT"
 
 [node name="Sprite2D2" type="Sprite2D" parent="Control"]
@@ -307,9 +308,10 @@ offset_top = -49.4789
 offset_right = 90.9305
 offset_bottom = -3.47885
 rotation = 0.868544
+scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.879091, 0.193197, 0.404037, 1)
 theme_override_fonts/font = ExtResource("4_32oe6")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 60
 text = "DEAD"
 
 [node name="Sprite2D3" type="Sprite2D" parent="Control"]
@@ -325,9 +327,10 @@ offset_top = -44.0486
 offset_right = 108.264
 offset_bottom = 1.95144
 rotation = 0.641252
+scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.439323, 0.394399, 1, 1)
 theme_override_fonts/font = ExtResource("4_32oe6")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 60
 text = "YET"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

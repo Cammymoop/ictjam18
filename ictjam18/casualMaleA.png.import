@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnb60a4658nkr"
 path.s3tc="res://.godot/imported/casualMaleA.png-c9332103d564baf90896d18654891aac.s3tc.ctex"
+path.etc2="res://.godot/imported/casualMaleA.png-c9332103d564baf90896d18654891aac.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://casualMaleA.png"
-dest_files=["res://.godot/imported/casualMaleA.png-c9332103d564baf90896d18654891aac.s3tc.ctex"]
+dest_files=["res://.godot/imported/casualMaleA.png-c9332103d564baf90896d18654891aac.s3tc.ctex", "res://.godot/imported/casualMaleA.png-c9332103d564baf90896d18654891aac.etc2.ctex"]
 
 [params]
 

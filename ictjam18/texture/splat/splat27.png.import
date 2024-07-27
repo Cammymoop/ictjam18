@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwwc1etxoc0rj"
 path.s3tc="res://.godot/imported/splat27.png-a9bcf096cc674f1d980fe4425f003cca.s3tc.ctex"
+path.etc2="res://.godot/imported/splat27.png-a9bcf096cc674f1d980fe4425f003cca.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://texture/splat/splat27.png"
-dest_files=["res://.godot/imported/splat27.png-a9bcf096cc674f1d980fe4425f003cca.s3tc.ctex"]
+dest_files=["res://.godot/imported/splat27.png-a9bcf096cc674f1d980fe4425f003cca.s3tc.ctex", "res://.godot/imported/splat27.png-a9bcf096cc674f1d980fe4425f003cca.etc2.ctex"]
 
 [params]
 

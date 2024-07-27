@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3uvmknxocfr8"
 path.s3tc="res://.godot/imported/variation-c.png-d51b5c93a393099b38db2326a8d5473d.s3tc.ctex"
+path.etc2="res://.godot/imported/variation-c.png-d51b5c93a393099b38db2326a8d5473d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://model/castle_tex/variation-c.png"
-dest_files=["res://.godot/imported/variation-c.png-d51b5c93a393099b38db2326a8d5473d.s3tc.ctex"]
+dest_files=["res://.godot/imported/variation-c.png-d51b5c93a393099b38db2326a8d5473d.s3tc.ctex", "res://.godot/imported/variation-c.png-d51b5c93a393099b38db2326a8d5473d.etc2.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmapv1wfqgfo4"
 path.s3tc="res://.godot/imported/hex_tower_section_colormap.png-4892aab32a12b384bd130464aa12bb02.s3tc.ctex"
+path.etc2="res://.godot/imported/hex_tower_section_colormap.png-4892aab32a12b384bd130464aa12bb02.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://model/combined/hex_tower_section_colormap.png"
-dest_files=["res://.godot/imported/hex_tower_section_colormap.png-4892aab32a12b384bd130464aa12bb02.s3tc.ctex"]
+dest_files=["res://.godot/imported/hex_tower_section_colormap.png-4892aab32a12b384bd130464aa12bb02.s3tc.ctex", "res://.godot/imported/hex_tower_section_colormap.png-4892aab32a12b384bd130464aa12bb02.etc2.ctex"]
 
 [params]
 

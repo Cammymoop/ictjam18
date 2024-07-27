@@ -9,6 +9,8 @@ func _on_body_entered(body: Node3D) -> void:
 	
 	var lvl = get_node_or_null("/root/LVL")
 	if lvl:
+		if len(lvl.next_level) < 1:
+			SceneSwitcher.reload_scene(2)
 		SceneSwitcher.switch_scene(2, lvl.next_level)
 	else:
 		print_debug("Can't get lvl node")

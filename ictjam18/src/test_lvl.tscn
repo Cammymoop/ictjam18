@@ -66,6 +66,21 @@ distance_fade_max_distance = 100.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_cjyo1"]
 size = Vector3(2000, 2, 2000)
 
+[sub_resource type="Animation" id="Animation_32u8f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_mk758"]
 resource_name = "awve"
 length = 5.0
@@ -84,12 +99,18 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(-1, 0, -1)]
 }
 
-[sub_resource type="Animation" id="Animation_32u8f"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yaptc"]
+_data = {
+"RESET": SubResource("Animation_32u8f"),
+"awve": SubResource("Animation_mk758")
+}
+
+[sub_resource type="Animation" id="Animation_pqvg7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:surface_material_override/0:uv1_offset")
+tracks/0/path = NodePath(".:surface_material_override/0:uv2_offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -97,12 +118,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yaptc"]
-_data = {
-"RESET": SubResource("Animation_32u8f"),
-"awve": SubResource("Animation_mk758")
 }
 
 [sub_resource type="Animation" id="Animation_xon5m"]
@@ -121,21 +136,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(1, 0, -2)]
-}
-
-[sub_resource type="Animation" id="Animation_pqvg7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:surface_material_override/0:uv2_offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhvk6"]

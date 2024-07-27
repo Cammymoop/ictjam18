@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7v5im3vst71u"
 path.s3tc="res://.godot/imported/paint_arrow_up.png-f9e4ea892bfd30340eff31346d448356.s3tc.ctex"
+path.etc2="res://.godot/imported/paint_arrow_up.png-f9e4ea892bfd30340eff31346d448356.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://texture/yellow/paint_arrow_up.png"
-dest_files=["res://.godot/imported/paint_arrow_up.png-f9e4ea892bfd30340eff31346d448356.s3tc.ctex"]
+dest_files=["res://.godot/imported/paint_arrow_up.png-f9e4ea892bfd30340eff31346d448356.s3tc.ctex", "res://.godot/imported/paint_arrow_up.png-f9e4ea892bfd30340eff31346d448356.etc2.ctex"]
 
 [params]
 

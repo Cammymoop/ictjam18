@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dklaw1cdxfs4r"
 path.s3tc="res://.godot/imported/casualMaleA.png-4514ad98cf6a2608b3dba908a87d8c8d.s3tc.ctex"
+path.etc2="res://.godot/imported/casualMaleA.png-4514ad98cf6a2608b3dba908a87d8c8d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://texture/player/casualMaleA.png"
-dest_files=["res://.godot/imported/casualMaleA.png-4514ad98cf6a2608b3dba908a87d8c8d.s3tc.ctex"]
+dest_files=["res://.godot/imported/casualMaleA.png-4514ad98cf6a2608b3dba908a87d8c8d.s3tc.ctex", "res://.godot/imported/casualMaleA.png-4514ad98cf6a2608b3dba908a87d8c8d.etc2.ctex"]
 
 [params]
 

@@ -11,10 +11,8 @@ const EASING = 0.3
 
 func _physics_process(delta: float) -> void:
 	if not moving:
-		print("not shmoving")
 		return
 	
-	print("shmoving")
 	elapsed += delta
 	var progress = ease(elapsed/DURATION, EASING)
 	

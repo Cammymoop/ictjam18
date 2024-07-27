@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://diox27xmumxqr"
 path.s3tc="res://.godot/imported/pattern_45.png-1df7635657830e990f98a5297e28b669.s3tc.ctex"
+path.etc2="res://.godot/imported/pattern_45.png-1df7635657830e990f98a5297e28b669.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://texture/pattern_45.png"
-dest_files=["res://.godot/imported/pattern_45.png-1df7635657830e990f98a5297e28b669.s3tc.ctex"]
+dest_files=["res://.godot/imported/pattern_45.png-1df7635657830e990f98a5297e28b669.s3tc.ctex", "res://.godot/imported/pattern_45.png-1df7635657830e990f98a5297e28b669.etc2.ctex"]
 
 [params]
 

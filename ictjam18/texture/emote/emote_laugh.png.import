@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2x5osy8nt2he"
 path.s3tc="res://.godot/imported/emote_laugh.png-610f6354b88ba8036c57e9b48adf25e0.s3tc.ctex"
+path.etc2="res://.godot/imported/emote_laugh.png-610f6354b88ba8036c57e9b48adf25e0.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://texture/emote/emote_laugh.png"
-dest_files=["res://.godot/imported/emote_laugh.png-610f6354b88ba8036c57e9b48adf25e0.s3tc.ctex"]
+dest_files=["res://.godot/imported/emote_laugh.png-610f6354b88ba8036c57e9b48adf25e0.s3tc.ctex", "res://.godot/imported/emote_laugh.png-610f6354b88ba8036c57e9b48adf25e0.etc2.ctex"]
 
 [params]
 
